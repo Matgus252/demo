@@ -24,17 +24,22 @@ while len(player_cards) !=2:
     player_cards.append(random.randint(1,11))
     # This deals the cards for the player 
     if len(player_cards) ==2:
-        print("You have a:", player_cards)
+        print("You have:", player_cards)
         # This shows us only one of the dealer cards by only showing index [1] 
  # Sum of dealer cards
 if sum(dealer_cards) == 21:    
      print("The dealer has a blackjack!")
 elif sum(dealer_cards) > 21:
      print("The dealer has busted. You Win!")
+while sum(dealer_cards) < 17:
+    dealer_cards.append(random.randint(1,11))
+'''How do I get the dealer to stop dealing cards once he reaches 17+?'''
+
  # Sum of player cards
 while sum(player_cards) < 21: 
      action_taken = str(input("Do you want to hit or stand?  "))
-     if action_taken == "hit" or "Hit":
+     print(action_taken)
+     if action_taken == "hit":
             player_cards.append(random.randint(1,11))
             print("You now have a total of " + str(sum(player_cards)) + " from these cards ", player_cards)
      else:
@@ -42,9 +47,11 @@ while sum(player_cards) < 21:
          print("You have a total of " + str(sum(player_cards)) + " with ", player_cards)
          if sum(dealer_cards) > sum(player_cards):
              print("The dealer wins!")
-         else:
+         else: 
              print("You win!")
              break
+        ''' How do you signal a push? '''
+
 
 if sum(player_cards) > 21:
     print("You busted. The dealer wins!") 
